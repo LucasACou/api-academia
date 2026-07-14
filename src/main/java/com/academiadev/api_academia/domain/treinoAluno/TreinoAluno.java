@@ -24,7 +24,10 @@ public class TreinoAluno {
     @GeneratedValue
     private UUID id;
 
+    @Column(nullable = false, updatable = false)
     private LocalDate dataInicio;
+
+    @Column(nullable = false)
     private Boolean status;
 
     @ManyToOne
