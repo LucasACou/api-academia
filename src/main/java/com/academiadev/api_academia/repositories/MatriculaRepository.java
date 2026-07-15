@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface MatriculaRepository extends JpaRepository<UUID, Matricula> {
+public interface MatriculaRepository extends JpaRepository<Matricula, UUID> {
 }
