@@ -19,7 +19,7 @@ import java.util.UUID;
 public class TreinoExercicios {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Column(nullable = false)
@@ -32,10 +32,10 @@ public class TreinoExercicios {
     private Integer carga;
 
     @ManyToOne
-    @JoinColumn(name = "treino_id")
+    @JoinColumn(name = "treino_id", nullable = false)
     private Treino treino;
 
     @ManyToOne
-    @JoinColumn(name = "exercicio_id")
+    @JoinColumn(name = "exercicio_id", nullable = false)
     private Exercicio exercicio;
 }

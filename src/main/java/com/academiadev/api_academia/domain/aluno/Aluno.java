@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-@Table(name = "aluno")
+@Table(name = "alunos")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,25 +19,30 @@ import java.util.UUID;
 public class Aluno {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(unique = true, nullable = false)
-    private Integer cpf;
+    @Column(unique = true, nullable = false, length = 11)
+    private String cpf;
+
+    @Column(nullable = false, length = 15)
+    private String telefone;
 
     @Column(nullable = false)
-    private Integer telefone;
+    private Double altura;
 
     @Column(nullable = false)
-    private Float altura;
-
-    @Column(nullable = false)
-    private Float peso;
+    private Double peso;
 
     @Column(nullable = false, updatable = false)
     private LocalDate dataInicio;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @PrePersist
+    public void prePersist() {
+        this.dataInicio = LocalDate.now();
+    }
 }

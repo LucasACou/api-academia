@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
-@Table(name = "exercicio")
+@Table(name = "exercicios")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,14 +17,15 @@ import java.util.UUID;
 public class Exercicio {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 100)
     private String nome;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String grupoMuscular;
 
+    @Column
     private String descricao;
 }

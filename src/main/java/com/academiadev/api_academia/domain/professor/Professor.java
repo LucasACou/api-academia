@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "professor")
+@Table(name = "professores")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,16 +19,16 @@ import java.util.UUID;
 public class Professor {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 10)
     private Integer cref;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String especialidade;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }

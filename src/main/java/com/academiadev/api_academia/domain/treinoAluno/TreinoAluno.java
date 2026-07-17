@@ -21,7 +21,7 @@ import java.util.UUID;
 public class TreinoAluno {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Column(nullable = false, updatable = false)
@@ -37,4 +37,9 @@ public class TreinoAluno {
     @ManyToOne
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;
+
+    @PrePersist
+    public void prePersist() {
+        this.dataInicio = LocalDate.now();
+    }
 }

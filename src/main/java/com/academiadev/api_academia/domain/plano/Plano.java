@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
-@Table(name = "plano")
+@Table(name = "planos")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,17 +17,18 @@ import java.util.UUID;
 public class Plano {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 100)
     private String nome;
 
     @Column(nullable = false)
-    private Float valor;
+    private Double valor;
 
     @Column(nullable = false)
     private Integer duracaoMeses;
 
+    @Column
     private String descricao;
 }
