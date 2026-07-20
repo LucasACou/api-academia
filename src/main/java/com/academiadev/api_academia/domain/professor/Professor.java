@@ -1,13 +1,12 @@
 package com.academiadev.api_academia.domain.professor;
 
-import com.academiadev.api_academia.domain.user.User;
+import com.academiadev.api_academia.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -30,5 +29,5 @@ public class Professor {
 
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Usuario usuario;
 }

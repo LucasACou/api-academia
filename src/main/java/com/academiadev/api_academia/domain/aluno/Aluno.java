@@ -1,6 +1,6 @@
 package com.academiadev.api_academia.domain.aluno;
 
-import com.academiadev.api_academia.domain.user.User;
+import com.academiadev.api_academia.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,7 +39,7 @@ public class Aluno {
 
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Usuario usuario;
 
     @PrePersist
     public void prePersist() {
