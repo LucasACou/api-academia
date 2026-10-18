@@ -3,18 +3,16 @@ package com.academiadev.api_academia.services;
 import com.academiadev.api_academia.domain.usuario.Usuario;
 import com.academiadev.api_academia.domain.usuario.UsuarioRequestDTO;
 import com.academiadev.api_academia.repositories.UsuarioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UsuarioService {
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public Usuario createUsuario(UsuarioRequestDTO data) {
 

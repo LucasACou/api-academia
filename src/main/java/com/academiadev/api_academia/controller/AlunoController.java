@@ -4,9 +4,7 @@ import com.academiadev.api_academia.domain.aluno.Aluno;
 import com.academiadev.api_academia.domain.aluno.AlunoRequestDTO;
 import com.academiadev.api_academia.services.AlunoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

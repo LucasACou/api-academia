@@ -21,8 +21,8 @@ public class Professor {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(unique = true, nullable = false, length = 10)
-    private Integer cref;
+    @Column(unique = true, nullable = false, length = 20)
+    private String cref;
 
     @Column(nullable = false, length = 50)
     private String especialidade;
