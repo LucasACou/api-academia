@@ -38,7 +38,7 @@ public class Aluno {
     private LocalDate dataInicio;
 
     @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
     private Usuario usuario;
 
     @PrePersist

@@ -7,6 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class UsuarioService {
@@ -25,5 +28,13 @@ public class UsuarioService {
         usuarioRepository.save(newUsuario);
 
         return newUsuario;
+    }
+
+    public List<Usuario> findAllUsuarios() {
+        return usuarioRepository.findAll();
+    }
+
+    public void deleteProfessorById(UUID id) {
+        usuarioRepository.deleteById(id);
     }
 }

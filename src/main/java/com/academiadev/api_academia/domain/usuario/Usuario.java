@@ -1,5 +1,8 @@
 package com.academiadev.api_academia.domain.usuario;
 
+import com.academiadev.api_academia.domain.aluno.Aluno;
+import com.academiadev.api_academia.domain.professor.Professor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,6 +42,14 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 15)
     private UsuarioRole role;
+
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private Professor professor;
+
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private Aluno aluno;
 
     @PrePersist
     public void prePersist() {

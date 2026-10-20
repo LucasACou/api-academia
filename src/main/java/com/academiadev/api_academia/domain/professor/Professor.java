@@ -28,6 +28,6 @@ public class Professor {
     private String especialidade;
 
     @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
     private Usuario usuario;
 }
